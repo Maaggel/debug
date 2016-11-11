@@ -76,6 +76,7 @@ To remember the collapsed setting etc. it is using cookies.
 <ol>
 	<li>Add editable variables *</li>
 	<li>Add other types than object and array for listening **</li>
+	<li>Snapping positioning of the variable boxes (namespaces)</li>
 </ol>
 
 \* Editable variables is inspired by the way Unity3D allows you to change any variable on the fly. If the variable are only used for initialization etc. this will, ofcause, not have that much of an effect.
