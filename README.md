@@ -78,7 +78,7 @@ To remember the collapsed setting etc. it is using cookies.
 	<li>Add other types than object and array for listening **</li>
 </ol>
 
-\* Editable variables, is inspired by the way Unity3D allows you to change any variable on the fly. If the variable are only used for initialization etc. this will, ofcause, not have that much of an effect.
+\* Editable variables is inspired by the way Unity3D allows you to change any variable on the fly. If the variable are only used for initialization etc. this will, ofcause, not have that much of an effect.
 
 \*\* This poses the issue, that there aren't any reliable listener functions. By using only objects and arrays, the references are only that - references. So watching the variable is posible.
 
