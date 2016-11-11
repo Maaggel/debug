@@ -59,6 +59,9 @@ unWatch((mixed)variable);
 </html>
 ```
 
+A more advanced example can be found on JSFiddle here
+[Advanced example on JSFiddle](https://jsfiddle.net/b5p23wwz/)
+
 
 ### Prerequisities
 
