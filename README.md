@@ -84,7 +84,7 @@ To remember the collapsed setting etc. it is using cookies.
 
 ## Authors
 
-* **Mikkel Bundgaard @ Klean** - *Initial work* - [Maaggel](https://github.com/maaggel)
+* **Mikkel Bundgaard @ Inspire Me** - *Initial work* - [Maaggel](https://github.com/maaggel)
 
 ## License
 
