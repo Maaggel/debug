@@ -23,7 +23,7 @@ unWatch((mixed)variable);
 
 #### Example
 View on jsfiddle:
-https://jsfiddle.net/fbdp2bq0/
+<a href="https://jsfiddle.net/fbdp2bq0/" target="_blank">https://jsfiddle.net/fbdp2bq0/</a>
 ```
 <!doctype html>
 <html lang="en">
