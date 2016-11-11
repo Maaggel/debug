@@ -22,6 +22,8 @@ unWatch((mixed)variable);
 ```
 
 #### Example
+View on jsfiddle:
+https://jsfiddle.net/fbdp2bq0/
 ```
 <!doctype html>
 <html lang="en">
