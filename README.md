@@ -1,2 +1,2 @@
-# debug
+# debug.js
 Javascript Debug library
