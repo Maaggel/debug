@@ -16,7 +16,7 @@ After including the debug.js file, you can watch a variable using the command
 watch((mixed)variable, (string)label (optional));
 ```
 
-You can unwatch/stop watching if using the following command
+You can unwatch/stop watching it using the following command
 ```
 unWatch((mixed)variable);
 ```
