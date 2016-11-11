@@ -22,7 +22,7 @@ unWatch((mixed)variable);
 ```
 
 #### Example
-[View on JSFiddle](https://jsfiddle.net/fbdp2bq0/){:target="_blank"}
+[View on JSFiddle](https://jsfiddle.net/fbdp2bq0/)
 ```
 <!doctype html>
 <html lang="en">
