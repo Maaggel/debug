@@ -19,9 +19,16 @@
     debugWindow: false,
     prefix: 'js_debug',
     settings: {
-        interval: 100
+        interval: 100,
+        typeColors: {
+            array: '#B88700',
+            object: '#B84500',
+            string: '#56b02e',
+            number: '#89bdff',
+            bool: '#AC00C6',
+            null: '#7A7A7A'
+        }
     },
-
     /**
      * Add a listener
      */
@@ -236,7 +243,7 @@
             $debug.addStyling(headStyle, ".debugWindow .namespace .content", "padding: 5px;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']", "outline: 0; border: 0; background-color: transparent; color: inherit; font-size: inherit; font-family: inherit;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']:focus", "background-color: #3A3827;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-array .value", "color: #B88700;");
+            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-array .value", "color: #B88700;!important");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-object .value", "color: #B84500!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-string .value", "color: #56b02e!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-number .value", "color: #89bdff!important;");
