@@ -77,7 +77,8 @@ To remember the collapsed setting etc. it is using cookies.
 
 <strong>1.0.1</strong> 
 <ul>
-	<li>Added null values and cleaned code a bit</li>
+	<li>Added null values</li>
+	<li>Cleaned code a bit</li>
 </ul>
 
 ## To-do
