@@ -126,20 +126,17 @@
         var content = '<div class="content">';
 
     	//Switch the types
-    	if(typeof listener.object === "function")
-    		content += 'Cannot track functions';
-    	else if(typeof listener.object === "object")
-    		content += $debug.getObjectChildren(listener.object, listener.modify);
-    	else if(Array.isArray(listener.object))
-    		content += $debug.getObjectChildren(listener.object, listener.modify);
-    	else if(typeof listener.object === "number")
-    		content += 'Cannot track numbers directly';
-    	else if(typeof listener.object === "string")
-    		content += 'Cannot track strings directly';
-        else if(typeof listener.object === "boolean")
-            content += 'Cannot track booleans directly';
-    	else
-    		content += 'unknown type';
+        switch ((Array.isArray(listener.object) ? "array" : typeof listener.object)) {
+            case "function":
+                content += 'Cannot track functions';
+                break; 
+            case "object":
+            case "array":
+                content += $debug.getObjectChildren(listener.object, listener.modify);
+                break;
+            default: 
+                content += 'Can only track objects and arrays directly';
+        }
 
         //End the content
         listener.namespace.innerHTML += content+'</div>';
