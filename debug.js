@@ -26,9 +26,11 @@
             string: '#56b02e',
             number: '#89bdff',
             bool: '#AC00C6',
-            null: '#7A7A7A'
+            null: '#7A7A7A',
+            unknown: '#FFF'
         }
     },
+
     /**
      * Add a listener
      */
@@ -185,21 +187,21 @@
 
                 //Switch the types
                 if(value === null)
-                    html += '<li class="type-null">'+key+': <span class="value">null</span></li>';
+                    html += '<li>'+key+': <span class="value" style="color: '+$debug.c('null')+';">null</span></li>';
                 else if(typeof value === "function")
-                    html += '<li class="type-function">function</li>';
+                    html += '<li><span style="color: '+$debug.c('function')+';">function</span></li>';
                 else if(Array.isArray(value))
-                    html += '<li class="type-array">'+key+': <span class="value">(array)</span>'+$debug.getObjectChildren(value, modify, (level+1))+'</li>';
+                    html += '<li>'+key+': <span style="color: '+$debug.c('array')+';">(array)</span>'+$debug.getObjectChildren(value, modify, (level+1))+'</li>';
                 else if(typeof value === "object")
-                    html += '<li class="type-object">'+key+': <span class="value">(object)</span>'+$debug.getObjectChildren(value, modify, (level+1))+'</li>';
+                    html += '<li>'+key+': <span style="color: '+$debug.c('object')+';">(object)</span>'+$debug.getObjectChildren(value, modify, (level+1))+'</li>';
                 else if(typeof value === "number")
-                    html += '<li class="type-number">'+key+': <span class="value">'+(modify ? '<input type="text" value="'+value+'" />' : value)+'</span></li>';
+                    html += '<li>'+key+': <span style="color: '+$debug.c('number')+';">'+(modify ? '<input type="text" value="'+value+'" />' : value)+'</span></li>';
                 else if(typeof value === "string")
-                    html += '<li class="type-string">'+key+': <span class="value">'+(modify ? '<input type="text" value="'+value+'" />' : value)+'</span></li>';
+                    html += '<li>'+key+': <span style="color: '+$debug.c('string')+';">'+(modify ? '<input type="text" value="'+value+'" />' : value)+'</span></li>';
                 else if(typeof value === "boolean")
-                    html += '<li class="type-bool">'+key+': <span class="value">'+(value ? 'true' : 'false')+'</span></li>';
+                    html += '<li>'+key+': <span style="color: '+$debug.c('bool')+';">'+(value ? 'true' : 'false')+'</span></li>';
                 else
-                    html += '<li class="type-unknown">'+key+': <span class="value">unknown type ('+(typeof value)+')</span></li>';
+                    html += '<li style="color: '+$debug.c('unknown')+';">'+key+': <span class="value">unknown type ('+(typeof value)+')</span></li>';
             });
 
         //End
@@ -243,12 +245,6 @@
             $debug.addStyling(headStyle, ".debugWindow .namespace .content", "padding: 5px;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']", "outline: 0; border: 0; background-color: transparent; color: inherit; font-size: inherit; font-family: inherit;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']:focus", "background-color: #3A3827;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-array .value", "color: #B88700!important;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-object .value", "color: #B84500!important;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-string .value", "color: #56b02e!important;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-number .value", "color: #89bdff!important;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-bool .value", "color: #AC00C6!important;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-null .value", "color: #7A7A7A!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace.collapsed .content", "display: none;");
             $debug.addStyling(headStyle, ".debugWindow .namespace ul, .debugWindow .namespace ul li", "list-style: none; margin: 0; padding: 0;");
             $debug.addStyling(headStyle, ".debugWindow .namespace ul:not(.level-0)", "padding-left: 10px!important;");
@@ -317,6 +313,13 @@
                 return c.substring(name.length,c.length);
         }
         return "";
+    },
+
+    //Get a color
+    c: function(color)
+    {
+        //Return the color
+        return $debug.settings.typeColors[color];
     },
 
     //MD5
