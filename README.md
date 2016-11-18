@@ -75,6 +75,11 @@ To remember the collapsed setting etc. it is using cookies.
 	<li>Listen to object and arrays only</li>
 </ul>
 
+<strong>1.0.1</strong> 
+<ul>
+	<li>Added null values and cleaned code a bit</li>
+</ul>
+
 ## To-do
 <ol>
 	<li>Add editable variables *</li>
