@@ -13,14 +13,14 @@
  * watch(variable, label (optional));
  */
  var $debug = {
-	//Variables
-	interval: false,
-	listeners: [],
-	debugWindow: false,
+    //Variables
+    interval: false,
+    listeners: [],
+    debugWindow: false,
     prefix: 'js_debug',
-	settings: {
-		interval: 100
-	},
+    settings: {
+        interval: 100
+    },
 
     /**
      * Add a listener
@@ -43,8 +43,8 @@
      */
     digest: function()
     {
-		//Loop through the listeners
-		$debug.listeners.forEach(function (listener) {
+        //Loop through the listeners
+        $debug.listeners.forEach(function (listener) {
             if(debugWindow)
             {
                 //Create namespace?
@@ -89,7 +89,7 @@
                     listener.savedValue = hash;
                 }
             }
-		});
+        });
     },
 
     /**
@@ -119,13 +119,13 @@
      */
     setNamespace: function(listener)
     {
-    	//Set the name
-    	listener.namespace.innerHTML = '<span class="name">'+(listener.name == '' ? '('+(Array.isArray(listener.object) ? 'array' : (typeof listener.object))+')' : listener.name)+(listener.modify ? '<span class="nameLabel">(editable)</span>' : '')+'<div class="collapse" onclick="$debug.collapse(this);"></div></span>';
+        //Set the name
+        listener.namespace.innerHTML = '<span class="name">'+(listener.name == '' ? '('+(Array.isArray(listener.object) ? 'array' : (typeof listener.object))+')' : listener.name)+(listener.modify ? '<span class="nameLabel">(editable)</span>' : '')+'<div class="collapse" onclick="$debug.collapse(this);"></div></span>';
 
         //Start the content
         var content = '<div class="content">';
 
-    	//Switch the types
+        //Switch the types
         switch ((Array.isArray(listener.object) ? "array" : typeof listener.object)) {
             case "function":
                 content += 'Cannot track functions';
@@ -168,8 +168,8 @@
         if(typeof level === "undefined")
             level = 0;
 
-    	//Print the start
-    	var html = '<ul class="level-'+level+'">';
+        //Print the start
+        var html = '<ul class="level-'+level+'">';
 
             //Loop through the elements
             Object.keys(object).forEach(function(key) {
@@ -177,7 +177,9 @@
                 var value = object[key];
 
                 //Switch the types
-                if(typeof value === "function")
+                if(value === null)
+                    html += '<li class="type-null">'+key+': <span class="value">null</span></li>';
+                else if(typeof value === "function")
                     html += '<li class="type-function">function</li>';
                 else if(Array.isArray(value))
                     html += '<li class="type-array">'+key+': <span class="value">(array)</span>'+$debug.getObjectChildren(value, modify, (level+1))+'</li>';
@@ -190,14 +192,14 @@
                 else if(typeof value === "boolean")
                     html += '<li class="type-bool">'+key+': <span class="value">'+(value ? 'true' : 'false')+'</span></li>';
                 else
-                    html += '<li class="type-unknown">'+key+': <span class="value">unknown type ('+(typeof value)+')</span></li>'; 
+                    html += '<li class="type-unknown">'+key+': <span class="value">unknown type ('+(typeof value)+')</span></li>';
             });
 
-    	//End
-    	html += '</ul>';
+        //End
+        html += '</ul>';
 
-    	//Return
-    	return html;
+        //Return
+        return html;
     },
 
     /**
@@ -205,18 +207,18 @@
      */
     init: function()
     {
-    	//Get the debug window
-    	debugWindow = document.querySelector(".debugWindow");
+        //Get the debug window
+        debugWindow = document.querySelector(".debugWindow");
 
-    	//Create the debug window
-    	if(!debugWindow)
+        //Create the debug window
+        if(!debugWindow)
         {
             //Create the element
             debugWindow = document.createElement('div');
             debugWindow.setAttribute('class', 'debugWindow');
 
             //Append this to the body
-    		document.body.appendChild(debugWindow);
+            document.body.appendChild(debugWindow);
 
             //Add the styling
             var headStyle = document.createElement('style');
@@ -248,15 +250,15 @@
             document.head.appendChild(headStyle);
         }
 
-    	//Start the interval
-    	if(!$debug.interval)
-    	{
-    		//Start the interval
-    		interval = setInterval(function() {
-    			//Digest
-    			$debug.digest();
-    		}, $debug.settings.interval)	
-    	}
+        //Start the interval
+        if(!$debug.interval)
+        {
+            //Start the interval
+            interval = setInterval(function() {
+                //Digest
+                $debug.digest();
+            }, $debug.settings.interval)    
+        }
 
     },
 
@@ -268,21 +270,21 @@
     //Simple stringify
     simpleStringify: function(object)
     {
-	    var simpleObject = {};
-	    for(var prop in object)
+        var simpleObject = {};
+        for(var prop in object)
         {
-	        if(!object.hasOwnProperty(prop))
-	            continue;
-	        if(typeof(object[prop]) == 'object')
-	            continue;
-	        if(typeof(object[prop]) == 'function')
-	            continue;
-	        simpleObject[prop] = object[prop];
-	    }
+            if(!object.hasOwnProperty(prop))
+                continue;
+            if(typeof(object[prop]) == 'object')
+                continue;
+            if(typeof(object[prop]) == 'function')
+                continue;
+            simpleObject[prop] = object[prop];
+        }
 
         //Return cleaned up JSON
-	    return JSON.stringify(simpleObject);
-	},
+        return JSON.stringify(simpleObject);
+    },
 
     //Set a cookie
     setCookie: function(cname, cvalue, exdays)
@@ -318,18 +320,18 @@
  */
 function watch(variable, name, modify)
 {
-	//Preset
-	if(typeof name === "undefined")
-		name = "";
-	if(typeof variable === "undefined")
-		return false;
+    //Preset
+    if(typeof name === "undefined")
+        name = "";
+    if(typeof variable === "undefined")
+        return false;
     if(typeof modify === "undefined")
         modify = false;
 
-	//Init
-	$debug.init();
+    //Init
+    $debug.init();
 
-	//Add a listener
+    //Add a listener
     $debug.addListener(variable, name, modify);
 }
 
