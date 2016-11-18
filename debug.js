@@ -241,6 +241,7 @@
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-string .value", "color: #56b02e!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-number .value", "color: #89bdff!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-bool .value", "color: #AC00C6!important;");
+            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-null .value", "color: #7A7A7A!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace.collapsed .content", "display: none;");
             $debug.addStyling(headStyle, ".debugWindow .namespace ul, .debugWindow .namespace ul li", "list-style: none; margin: 0; padding: 0;");
             $debug.addStyling(headStyle, ".debugWindow .namespace ul:not(.level-0)", "padding-left: 10px!important;");
