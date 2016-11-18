@@ -176,6 +176,8 @@
                 //Get the value
                 var value = object[key];
 
+                console.log(value);
+
                 //Switch the types
                 if(typeof value === "function")
                     html += '<li class="type-function">function</li>';
