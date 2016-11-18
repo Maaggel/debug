@@ -234,7 +234,7 @@
             headStyle.setAttribute('type', 'text/css');
 
             //Add the styling
-            $debug.addStyling(headStyle, ".debugWindow", "position: fixed; top: 0px; right: 0px; z-index: 10000;");
+            $debug.addStyling(headStyle, ".debugWindow", "position: fixed; top: 0px; right: 0px; z-index: 10000; max-height: 100%; overflow-x: hidden;");
             $debug.addStyling(headStyle, ".debugWindow .namespace", "position: relative; background-color: #222; color: #FFF; font-size: 11px; font-family: Courier; box-sizing: border-box; min-width: 215px; max-width: 280px; margin: 5px; border-radius: 4px; -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);");
             $debug.addStyling(headStyle, ".debugWindow .namespace .name", "display: block; padding: 5px 21px 5px 5px; border-bottom: 1px solid #444; background-color: #000; border-radius: 5px 5px 0 0;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .name .nameLabel", "color: #ACACAC;");
