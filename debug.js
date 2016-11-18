@@ -176,7 +176,7 @@
                 //Get the value
                 var value = object[key];
 
-                console.log(value);
+                console.log(typeof value);
 
                 //Switch the types
                 if(typeof value === "function")
