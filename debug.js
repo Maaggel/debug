@@ -243,7 +243,7 @@
             $debug.addStyling(headStyle, ".debugWindow .namespace .content", "padding: 5px;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']", "outline: 0; border: 0; background-color: transparent; color: inherit; font-size: inherit; font-family: inherit;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content input[type='text']:focus", "background-color: #3A3827;");
-            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-array .value", "color: #B88700;!important");
+            $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-array .value", "color: #B88700!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-object .value", "color: #B84500!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-string .value", "color: #56b02e!important;");
             $debug.addStyling(headStyle, ".debugWindow .namespace .content .type-number .value", "color: #89bdff!important;");
